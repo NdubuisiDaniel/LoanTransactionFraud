@@ -1,3 +1,51 @@
+/** Key Findings & Recommendations
+ 1. Fraud Rates by Loan Status
+Finding: Rejected loan applicants had a fraud rate over 2× higher than approved applicants.
+
+Recommendation:
+ Introduce post-rejection monitoring for high-risk applicants.
+ Flag rejected applicants with unusual transaction patterns for manual review.
+
+ 2. Fraud Concentration by Transaction Type
+Finding: Fraudulent activity is disproportionately higher in certain transaction types (e.g., Online and Transfer transactions had highest fraud rates).
+
+Recommendation:
+Increase fraud detection controls (e.g., velocity checks, IP filters) on high-risk transaction types.
+Consider stricter authentication for online transactions.
+
+ 3. Timing of Fraud Post-Loan
+Finding: Fraudulent transactions occur, on average, within 30–45 days of a loan application (approved or rejected).
+
+Recommendation:
+ Implement fraud surveillance windows during the first 60 days post-loan interaction.
+ Use temporal patterns in predictive fraud modeling.
+
+ 4. Credit Score & Fraud Correlation
+Finding: Customers with credit scores below 600 show significantly higher fraud rates (up to 3–4×).
+
+Recommendation:
+ Integrate credit score risk tiers into fraud models.
+ Require enhanced verification for low-score customers during onboarding and transactions.
+
+ 5. High-Risk Customer Profiles
+Finding: A small subset of customers accounts for the majority of fraudulent transactions.
+
+Recommendation:
+ Build customer-level risk scores combining loan history, transaction behavior, and fraud flags.
+ Prioritize investigations and interventions on top offenders.
+
+📈 6. Peak Fraud Hours
+Finding: Fraud is more likely to occur during off-peak hours (late night to early morning).
+Recommendation:
+ Trigger heightened fraud alerts during high-risk time windows.
+ Consider time-based throttling or manual reviews for large-value transactions during off-hours.
+
+Conclusion:
+By combining loan history, transaction metadata, and credit risk insights, the organization can build smarter fraud detection systems and reduce exposure to financial risk while maintaining customer trust.
+**/
+
+-- Questions Asked & SQL Queries used in Making Findings
+
 /** What is the average loan amount for approved vs rejected applications?**/
 SELECT loan_status, AVG(loan_amount_requested) as Average_Amount
 FROM loan_application
@@ -267,6 +315,7 @@ SELECT
    AVG(days_between_loan_and_fraud * 1.0) AS average_days_between_loan_and_fraud
 FROM
    loan_fraud_gap;
+
 
 
 
