@@ -34,7 +34,7 @@ Recommendation:
  Build customer-level risk scores combining loan history, transaction behavior, and fraud flags.
  Prioritize investigations and interventions on top offenders.
 
-📈 6. Peak Fraud Hours
+ 6. Peak Fraud Hours
 Finding: Fraud is more likely to occur during off-peak hours (late night to early morning).
 Recommendation:
  Trigger heightened fraud alerts during high-risk time windows.
